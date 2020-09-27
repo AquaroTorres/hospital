@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Patient;
+use App\Models\Allergy;
 use Illuminate\Http\Request;
 
 class PatientController extends Controller
@@ -25,7 +26,8 @@ class PatientController extends Controller
      */
     public function create()
     {
-        //
+        $allergies = Allergy::all();
+        return view('patients.create', compact('allergies'));
     }
 
     /**

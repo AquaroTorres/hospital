@@ -23,7 +23,16 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::get('patients', [PatientController::class, 'index'])->name('patient.index');
+Route::prefix('patients')->name('patients.')->group(function(){
+    Route::get('/', [PatientController::class, 'index'])->name('index');
+    Route::get('create', [PatientController::class, 'create'])->name('create');
+    //Route::post('store', 'PatientController@store')->name('store');
+    //Route::get('{patient}/edit', 'PatientController@edit')->name('edit');
+    //Route::put('{patient}/update','PatientController@update')->name('update');
+    //Route::delete('{patient}/destroy','PatientController@destroy')->name('destroy');
+});
+
+
 
 // Route::get($uri, $callback);
 // Route::post($uri, $callback);
