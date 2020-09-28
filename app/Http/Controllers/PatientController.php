@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Patient;
+use App\Models\Allergy;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 Use App\Traits\GoogleToken;
@@ -41,7 +42,8 @@ class PatientController extends Controller
      */
     public function create()
     {
-        //
+        $allergies = Allergy::all();
+        return view('patients.create', compact('allergies'));
     }
 
     /**

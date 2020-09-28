@@ -18,7 +18,7 @@
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('patient.index') }}" :active="request()->routeIs('patient.index')">
+                    <x-jet-nav-link href="{{ route('patients.index') }}" :active="request()->routeIs('patients.index')">
                         Pacientes
                     </x-jet-nav-link>
                 </div>
