@@ -1,5 +1,5 @@
 <div>
-    <input size="40" class="border ml-2 my-0 px-2 py-2 rounded-lg" wire:model.debounce.500ms="searchf" type="text" placeholder="Buscar de Pacientes..."/>
+    <input size="40" class="border ml-2 my-0 px-2 py-2 rounded-lg" wire:model.debounce.300ms="searchf" type="text" placeholder="Buscar de Pacientes..."/>
 
     <table class="table-auto my-8">
         <thead class="border">

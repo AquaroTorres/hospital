@@ -22,7 +22,6 @@ class PatientController extends Controller
     {
         /* Obtener pacientes desde Fhir */
         $token = $this->getToken();
-        //$token = 'ya29.a0AfH6SMCRP4OxfDlXuwWUMi6LffCw3t6DcxeRIkiMDUtMs_LDVaOyI02oI6I6wD2DPA6Q_7vQ-R-OWaiCrVW3cscVM498Lt-axa_3V5_B_W2IMyE0IBs5LUbDFRYMumul4w8SZoN5bfY9cTGlPjl5QyXVDlUwaHWROZ0';
         $url = 'https://healthcare.googleapis.com/v1/projects/interconector/locations/us-central1/datasets/chile/fhirStores/eslabon/fhir/Patient';
         $response = Http::withToken($token)->get($url);
         $patientsFhir = $response->json()['entry'];
