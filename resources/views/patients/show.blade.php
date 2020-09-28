@@ -5,11 +5,6 @@
         </h2>
     </x-slot>
 
-    @livewire('patient-show')
-
-
-    @foreach($fpatients as $patient)
-        <li>{{ $patient['resource']['name'][0]['family'] }}</li>
-    @endforeach
+    {{ $patient->name }}
 
 </x-app-layout>

@@ -4,9 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Patient;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
+Use App\Traits\GoogleToken;
+
 
 class PatientController extends Controller
 {
+    use GoogleToken;
+
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +20,18 @@ class PatientController extends Controller
     public function index()
     {
         $patients = Patient::all();
-        return view('patients.index', compact('patients'));
+
+        $token = $this->getToken();
+        //$token = 'ya29.a0AfH6SMCRP4OxfDlXuwWUMi6LffCw3t6DcxeRIkiMDUtMs_LDVaOyI02oI6I6wD2DPA6Q_7vQ-R-OWaiCrVW3cscVM498Lt-axa_3V5_B_W2IMyE0IBs5LUbDFRYMumul4w8SZoN5bfY9cTGlPjl5QyXVDlUwaHWROZ0';
+        $url = 'https://healthcare.googleapis.com/v1/projects/interconector/locations/us-central1/datasets/chile/fhirStores/eslabon/fhir/Patient';
+
+        $response = Http::withToken($token)->get($url);
+        $fpatients = $response->json()['entry'];
+
+
+        return view('patients.index')
+            ->withPatients($patients)
+            ->withFpatients($fpatients);
     }
 
     /**
@@ -47,7 +63,8 @@ class PatientController extends Controller
      */
     public function show(Patient $patient)
     {
-        //
+        //$patien = Patient::find(1);
+        return view('patients.show',compact('patient','patients'));
     }
 
     /**

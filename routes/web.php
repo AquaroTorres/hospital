@@ -24,6 +24,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::get('patients', [PatientController::class, 'index'])->name('patient.index');
+Route::get('patients/{patient}', [PatientController::class, 'show'])->name('patient.show');
 
 // Route::get($uri, $callback);
 // Route::post($uri, $callback);
