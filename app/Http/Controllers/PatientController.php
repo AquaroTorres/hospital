@@ -71,6 +71,8 @@ class PatientController extends Controller
         ];
 
         $response = Http::withToken($token)->post($url, $data);
+
+    
         return redirect()->route('patient.index');
     }
 
