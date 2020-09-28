@@ -17,7 +17,13 @@ class Patient extends Model
 
     protected $fillable = [
         'name',
-        'age',
+        'birthDate',
         'gender',
     ];
+
+    public function allergies() {
+    	return $this->belongsToMany('\App\Models\Allergy','allergy_patient')->withTimestamps();
+    }
+
+
 }
