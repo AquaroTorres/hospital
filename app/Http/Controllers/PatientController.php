@@ -20,19 +20,19 @@ class PatientController extends Controller
      */
     public function index()
     {
-        $patients = Patient::all();
-
+        /* Obtener pacientes desde Fhir */
         $token = $this->getToken();
         //$token = 'ya29.a0AfH6SMCRP4OxfDlXuwWUMi6LffCw3t6DcxeRIkiMDUtMs_LDVaOyI02oI6I6wD2DPA6Q_7vQ-R-OWaiCrVW3cscVM498Lt-axa_3V5_B_W2IMyE0IBs5LUbDFRYMumul4w8SZoN5bfY9cTGlPjl5QyXVDlUwaHWROZ0';
         $url = 'https://healthcare.googleapis.com/v1/projects/interconector/locations/us-central1/datasets/chile/fhirStores/eslabon/fhir/Patient';
-
         $response = Http::withToken($token)->get($url);
-        $fpatients = $response->json()['entry'];
+        $patientsFhir = $response->json()['entry'];
 
+        /* Obtener pacientes desde laravel */
+        $patients = Patient::all();
 
         return view('patients.index')
             ->withPatients($patients)
-            ->withFpatients($fpatients);
+            ->withPatientsFhir($patientsFhir);
     }
 
     /**
@@ -72,7 +72,7 @@ class PatientController extends Controller
 
         $response = Http::withToken($token)->post($url, $data);
 
-    
+
         return redirect()->route('patient.index');
     }
 

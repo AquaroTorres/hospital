@@ -6,10 +6,8 @@
 
     <div class="border shadow-xl mx-4 mt-0 mb-16 px-4 py-8 rounded-lg">
       <div class="flex justify-center bg-white mx-0 mb-4 px-0 py-0">
-        <button class="bg-blue-500 border-2 border-blue-500 hover:border-blue-700 text-white font-bold py-2 px-2 rounded-lg hover:bg-blue-700" onclick="window.location.href='{{ route('patient.create') }}'">
-          Crear Paciente
-        </button>
-        <input size="40" class="border ml-2 my-0 px-2 py-2 rounded-lg" wire:model.lazy="search" type="text" placeholder="Buscar de Pacientes..."/>
+
+        <input size="40" class="border ml-2 my-0 px-2 py-2 rounded-lg" wire:model.debounce.500ms="search" type="text" placeholder="Buscar de Pacientes..."/>
       </div>
 
         <div class="overflow-y-scroll h-80 flex justify-center">

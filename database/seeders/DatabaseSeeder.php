@@ -18,6 +18,6 @@ class DatabaseSeeder extends Seeder
     {
         User::factory()->count(5)->create();
         Allergy::factory()->count(10)->create();
-        Patient::factory()->count(30)->create();
+        Patient::factory()->count(10)->create();
     }
 }

@@ -11,8 +11,9 @@ class PatientShow extends Component
 
     public function render()
     {
+        $patients = Patient::where('name','LIKE','%'.$this->search.'%')->get();
         return view('livewire.patient-show', [
-            'patients' => Patient::where('name','LIKE','%'.$this->search.'%')->get(),
+            'patients' => $patients,
         ]);
     }
 }
