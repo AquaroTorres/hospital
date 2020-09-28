@@ -57,22 +57,31 @@ class PatientController extends Controller
         $token = $this->getToken();
         $url = 'https://healthcare.googleapis.com/v1/projects/interconector/locations/us-central1/datasets/chile/fhirStores/eslabon/fhir/Patient';
 
+        $fullName = explode(' ', $request->input('name'), 3);
+        if(count($fullName)==2){
+          $fullName[2]=' ';}
+        if(count($fullName)==1){
+          $fullName[1]=' ';
+          $fullName[2]=' ';
+        }
+
         $data = [
             'name' => [
                 0 => [
                     'use' => 'official',
-                    'family' => 'Parga',
-                    'given' => [0 => 'Lorena', 1 => 'Joanna'],
+                    'family' => $fullName[2],
+                    'given' => [0 => $fullName[0], 1 => $fullName[1]],
                 ],
             ],
-            'gender' => 'female',
-            'birthDate' => '1988-12-05',
+            'gender' => $request->input('gender'),
+            'birthDate' => $request->input('birthDate'),
             'resourceType' => 'Patient',
         ];
-
         $response = Http::withToken($token)->post($url, $data);
 
-
+        $patient = new Patient($request->All());
+        $patient->save();
+        $patient->allergies()->sync($request->input('allergies'));
         return redirect()->route('patient.index');
     }
 
