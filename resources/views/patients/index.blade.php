@@ -20,7 +20,7 @@
                         <tr>
                             <th class="px-4 py-2 font-bold">Index</th>
                             <th class="px-4 py-2 font-bold">Nombre</th>
-                            <th class="px-4 py-2 font-bold">Edad</th>
+                            <th class="px-4 py-2 font-bold">F.Nacimiento</th>
                             <th class="px-4 py-2 font-bold">Genero</th>
                         </tr>
                     </thead>
@@ -49,7 +49,7 @@
                         <tr>
                             <th class="px-4 py-2 font-bold">Index</th>
                             <th class="px-4 py-2 font-bold">Nombre</th>
-                            <th class="px-4 py-2 font-bold">Edad</th>
+                            <th class="px-4 py-2 font-bold">F.Nacimiento</th>
                             <th class="px-4 py-2 font-bold">Genero</th>
                         </tr>
                     </thead>
