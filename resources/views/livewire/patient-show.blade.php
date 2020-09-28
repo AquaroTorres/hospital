@@ -1,7 +1,7 @@
 <div class="container border mx-auto my-4">
     <div class="border mx-4 my-4 px-2 py-2 rounded-lg">
       <span class="block text-gray-700 text-center bg-gray-100 px-4 py-2">
-        <button class="bg-blue-500 border-2 border-blue-500 hover:border-blue-700 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700" onclick="window.location.href='{{ route('patients.create') }}'">
+        <button class="bg-blue-500 border-2 border-blue-500 hover:border-blue-700 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700" onclick="window.location.href='{{ route('patient.create') }}'">
           Agregar Paciente
         </button>
         <input class="border mx-4 my-4 px-2 py-2 rounded-lg" wire:model="search" type="text" placeholder="Buscar de Pacientes..."/>

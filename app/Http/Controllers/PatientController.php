@@ -65,8 +65,7 @@ class PatientController extends Controller
      */
     public function show(Patient $patient)
     {
-        //$patien = Patient::find(1);
-        return view('patients.show',compact('patient','patients'));
+        return view('patients.show',compact('patient'));
     }
 
     /**
