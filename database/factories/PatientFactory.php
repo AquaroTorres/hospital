@@ -23,7 +23,7 @@ class PatientFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
-            'age' => $this->faker->numberBetween(1,100),
+            'birthDate' => $this->faker->date(),
             'gender' => $this->faker->randomElement(['male', 'female']),
         ];
     }

@@ -26,7 +26,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::prefix('patient')->name('patient.')->group(function(){
     Route::get('/', [PatientController::class, 'index'])->name('index');
     Route::get('/create', [PatientController::class, 'create'])->name('create');
-    Route::get('/{patient}', [PatientController::class, 'show'])->name('show');
+    // Route::get('/{patient}', [PatientController::class, 'show'])->name('show');
+
+    Route::get('/store', [PatientController::class, 'store'])->name('store');
     //Route::post('store', 'PatientController@store')->name('store');
     //Route::get('{patient}/edit', 'PatientController@edit')->name('edit');
     //Route::put('{patient}/update','PatientController@update')->name('update');

@@ -16,7 +16,7 @@ class CreatePatientsTable extends Migration
         Schema::create('patients', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->unsignedInteger('age')->nullable();
+            $table->date('birthDate')->nullable();
             $table->enum('gender',['male','female']);
             $table->timestamps();
         });

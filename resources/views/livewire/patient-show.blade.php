@@ -9,7 +9,7 @@
         <button class="bg-blue-500 border-2 border-blue-500 hover:border-blue-700 text-white font-bold py-2 px-2 rounded-lg hover:bg-blue-700" onclick="window.location.href='{{ route('patient.create') }}'">
           Crear Paciente
         </button>
-        <input size="40" class="border ml-2 my-0 px-2 py-2 rounded-lg" wire:model="search" type="text" placeholder="Buscar de Pacientes..."/>
+        <input size="40" class="border ml-2 my-0 px-2 py-2 rounded-lg" wire:model.lazy="search" type="text" placeholder="Buscar de Pacientes..."/>
       </div>
 
         <div class="overflow-y-scroll h-80 flex justify-center">
@@ -18,7 +18,7 @@
                     <tr>
                         <th class="px-4 py-2 font-bold">Index</th>
                         <th class="px-4 py-2 font-bold">Nombre</th>
-                        <th class="px-4 py-2 font-bold">Edad</th>
+                        <th class="px-4 py-2 font-bold">Fecha Nacimiento</th>
                         <th class="px-4 py-2 font-bold">Genero</th>
                     </tr>
                 </thead>
@@ -28,14 +28,14 @@
                         <tr>
                             <td class="px-4 py-2">{{ $loop->index }}</td>
                             <td class="px-4 py-2">{{ $patient->name }}</td>
-                            <td class="px-4 py-2">{{ $patient->age }}</td>
+                            <td class="px-4 py-2">{{ $patient->birthDate }}</td>
                             <td class="px-4 py-2">{{ $patient->gender }}</td>
                         </tr>
                         @else
                         <tr class="bg-gray-200">
                             <td class="px-4 py-2">{{ $loop->index }}</td>
                             <td class="px-4 py-2">{{ $patient->name }}</td>
-                            <td class="px-4 py-2">{{ $patient->age }}</td>
+                            <td class="px-4 py-2">{{ $patient->birthDate }}</td>
                             <td class="px-4 py-2">{{ $patient->gender }}</td>
                         </tr>
                         @endif
