@@ -1,5 +1,6 @@
 <div>
-    <input size="40" class="border ml-2 my-0 px-2 py-2 rounded-lg" wire:model="search" type="text" placeholder="Buscar de Pacientes..."/>
+    <input size="40" class="border ml-2 my-0 px-2 py-2 rounded-lg"
+        wire:model.lazy="search" type="text" placeholder="Buscar de Pacientes..."/>
 
     <table class="table-auto my-8">
         <thead class="border">

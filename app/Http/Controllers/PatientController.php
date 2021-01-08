@@ -56,20 +56,14 @@ class PatientController extends Controller
         $token = $this->getToken();
         $url = 'https://healthcare.googleapis.com/v1/projects/interconector/locations/us-central1/datasets/chile/fhirStores/eslabon/fhir/Patient';
 
-        $fullName = explode(' ', $request->input('name'), 3);
-        if(count($fullName)==2){
-          $fullName[2]=' ';}
-        if(count($fullName)==1){
-          $fullName[1]=' ';
-          $fullName[2]=' ';
-        }
+        $array_name = explode(' ', $request->input('name'));
 
         $data = [
             'name' => [
                 0 => [
                     'use' => 'official',
-                    'family' => $fullName[2],
-                    'given' => [0 => $fullName[0], 1 => $fullName[1]],
+                    'family' => $array_name[1],
+                    'given' => [0 => $array_name[0] ],
                 ],
             ],
             'gender' => $request->input('gender'),
@@ -80,6 +74,7 @@ class PatientController extends Controller
 
         $patient = new Patient($request->All());
         $patient->save();
+
         $patient->allergies()->sync($request->input('allergies'));
         return redirect()->route('patient.index');
     }
