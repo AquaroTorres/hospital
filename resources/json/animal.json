@@ -1,0 +1,40 @@
+"extension" : [ //  sliced by value:url  in the specified order, Open 
+      { // The animal species.  E.g. Dog, Cow. // C? R!
+        // from Element: extension
+        "extension" : [
+            //  sliced by value:url  in the specified order, Open
+        ]
+        "url" : "species", // R!
+        "valueCodeableConcept" : {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/animal-species",
+                "code": "canislf",
+                "display": "Dog"
+              }
+            ]
+        }
+      }
+    ],
+    "url" : "http://hl7.org/fhir/StructureDefinition/patient-animal", // R!
+
+
+"extension": [
+  {
+    "extension": [
+      {
+        "url": "species",
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/animal-species",
+              "code": "canislf",
+              "display": "Dog"
+            }
+          ]
+        }
+      }
+  ],
+  "url": "http://hl7.org/fhir/StructureDefinition/patient-animal",
+  }
+],

@@ -16,8 +16,10 @@ class CreateApponintmentsTable extends Migration
         Schema::create('apponintments', function (Blueprint $table) {
             $table->id();
             $table->dateTime('date')->nullable();
-            $table->foreign('patient_id')->references('id')->on('patients');
+            $table->foreignId('patient_id')->nullable();
             $table->timestamps();
+
+            $table->foreign('patient_id')->references('id')->on('patients');
         });
     }
 

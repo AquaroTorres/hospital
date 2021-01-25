@@ -15,7 +15,7 @@
                 @foreach($patients['entry'] as $key => $patient)
                     <tr>
                         <td class="px-4 py-2">{{ ++$key }}</td>
-                        <td class="px-4 py-2">{{ implode(' ',$patient['resource']['name'][0]['given']) }} {{ $patient['resource']['name'][0]['family'] }}</td>
+                        <td class="px-4 py-2">{{ implode(' ',$patient['resource']['name'][0]['given']) }} {{ $patient['resource']['name'][0]['family'] ?? '' }}</td>
                         <td class="px-4 py-2">{{ $patient['resource']['birthDate'] }}</td>
                         <td class="px-4 py-2">{{ $patient['resource']['gender'] }}</td>
                     </tr>

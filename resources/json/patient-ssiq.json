@@ -1,0 +1,140 @@
+{
+    "resourceType":"Patient",
+    "id":"1",
+    "meta":{
+        "profile":[
+            "http://ssiq.cens.cl/fhir/StructureDefinition/SSIQPatient"
+        ]
+    },
+    "text":{
+        "status":"generated",
+        "div":"<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"mm\"/>a</div>"
+    },
+    "identifier":[
+        {
+            "use":"usual",
+            "type":{
+                "coding":[
+                    {
+                        "system":"http://terminology.hl7.org/CodeSystem/v2-0203",
+                        "code":"MR"
+                    }
+                ]
+            },
+            "value":"15287582"
+        }
+    ],
+    "name":[
+        {
+            "use":"official",
+            "text":"Alvaro Raymundo Edgardo Torres Fuchslocher",
+            "_family":{
+                "extension":[
+                    {
+                        "url":"http://hl7.org/fhir/StructureDefinition/humanname-fathers-family",
+                        "valueString":"Torres"
+                    },
+                    {
+                        "url":"http://hl7.org/fhir/StructureDefinition/humanname-mothers-family",
+                        "valueString":"Fuchslocher"
+                    }
+                ]
+            },
+            "given":[
+                "Alvaro",
+                "Raymundo",
+                "Edgardo"
+            ]
+        }
+    ],
+    "telecom":[
+        {
+            "system":"phone",
+            "value":"982598059",
+            "use":"home"
+        },
+        {
+            "system":"email",
+            "value":"alvaro.torres@redsalud.gob.cl",
+            "use":"work"
+        }
+    ],
+    "gender":"male",
+    "birthDate":"1982-02-25",
+    "address":[
+        {
+            "use":"home",
+            "text":"Ruben Donoso #2942 Depto. 1 Iquique",
+            "line":[
+                {
+                    "extension":[
+                        {
+                            "url":"http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName",
+                            "valueString":"Ruben Donoso"
+                        },
+						{
+							"url":"http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber",
+							"valueString":"2942"
+						},
+						{
+							"url":"http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-additionalLocator",
+							"valueString":"1"
+						},
+						{
+							"url":"http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetNameType",
+							"valueString":"Pasaje"
+						}
+                    ]
+                }
+            ],
+            "city":"Iquique",
+            "district":"Iquique",
+            "state":"Tarapacá"
+        }
+    ],
+    "maritalStatus":{
+        "coding":[
+            {
+                "system":"http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+                "code":"S",
+                "display":"Never Married"
+            }
+        ],
+        "text":"Single"
+    },
+    "extension":[
+        {
+            "url":"http://hl7.org/fhir/StructureDefinition/patient-genderIdentity",
+			"valueCodeableConcept": {
+				"coding": [
+					{
+						"system": "http://hl7.org/fhir/gender-identity",
+						"code": "male",
+						"display": "male"
+					}
+				]
+			}
+    	}
+    ],
+
+    "extension" : [ //  sliced by value:url  in the specified order, Open
+		{
+			"url" : "http://hl7.org/fhir/StructureDefinition/patient-nationality", // R!
+			{
+			  "extension" : [
+				  	{
+					  "url" : "code", // R!
+					  "valueCodeableConcept" : {
+			  				"coding": [
+			  					{
+			  						"code": "CL",
+			  						"display": "Chile"
+			  					}
+			  				]
+			  			}
+					}
+			  	]
+			}
+		}
+    ]
+}

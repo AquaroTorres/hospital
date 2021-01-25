@@ -42,7 +42,12 @@ class PatientController extends Controller
     public function create()
     {
         $allergies = Allergy::all();
-        return view('patients.create', compact('allergies'));
+
+        $url = 'https://fhir-ssiq.cens.cl/ssiq/fhir/ValueSet/instruction-level';
+        $response = Http::withToken("")->get($url);
+        $instructionLevel = $response->json()['compose']['include'][0]['concept'];
+
+        return view('patients.create', compact('allergies','instructionLevel'));
     }
 
     /**

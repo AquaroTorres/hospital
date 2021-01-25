@@ -24,12 +24,22 @@
           		</fieldset>
           		<fieldset class="flex flex-col mb-4 mx-4">
           			<label for="gender">Género</label>
-                <select style="width: 200px;" class="py-2 px-1 border rounded-lg" name="gender" id="gender" required="required">
-                  <option value="male">Masculino</option>
-                  <option value="female">Femenino</option>
-                </select>
+                    <select class="py-2 px-1 border rounded-lg" name="gender" id="gender" required="required">
+                        <option value="male">Masculino</option>
+                        <option value="female">Femenino</option>
+                    </select>
+
           			<!--<input type="text" class="py-1 px-1 border rounded-lg" id="forGenero" name="gender" required="required">-->
           		</fieldset>
+                <fieldset class="flex flex-col mb-4 mx-4">
+                    <label for="gender">Nivel de Instrucción</label>
+                    <select class="py-2 px-1 border rounded-lg" name="gender" id="gender" required="required">
+                        @foreach($instructionLevel as $il)
+
+                            <option value="{{ $il['code'] }}">{{ $il['display'] }}</option>
+                        @endforeach
+                    </select>
+                	</fieldset>
           </span>
           <span class="block text-gray-700 px-0 py-2 mr-4 my-4">
             <fieldset class="flex flex-col my-4 mx-4">

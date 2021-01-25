@@ -1,0 +1,53 @@
+{
+	"resourceType": "Patient",
+	"id": "3212",
+	"meta": {
+		"profile": [
+			"http://example.org/fhir/StructureDefinition/MyPatient"
+		]
+	},
+	"text": {
+		"status": "generated",
+		"div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"mm\"/>a</div>"
+	},
+	"extension": [
+		{
+			"url": "http://example.org/fhir/StructureDefinition/Prevision",
+			"valueString": "FONASA"
+		}
+	],
+	"identifier": [
+		{
+			"system": "http://www.registrocivil.cl/PASAPORTE",
+			"value": "16337362-9"
+		}
+	],
+	"name": [
+		{
+			"use": "official",
+			"text": "Antonio Medina Negrete",
+			"_family": {
+				"extension": [
+					{
+						"url": "http://hl7.org/fhir/StructureDefinition/humanname-fathers-family",
+						"valueString": "Medina"
+					},
+					{
+						"url": "http://hl7.org/fhir/StructureDefinition/humanname-mothers-family",
+						"valueString": "Negrete"
+					}
+				]
+			},
+			"given": [
+				"Alejandro"
+			]
+		}
+	],
+	"gender": "male",
+	"birthDate": "1986-11-08",
+	"address": [
+		{
+			"text": "Mi casa"
+		}
+	]
+}

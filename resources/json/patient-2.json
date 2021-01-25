@@ -1,0 +1,214 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "patient-2",
+  "url": "http://example.org/fhir/StructureDefinition/MyPatient",
+  "name": "MyPatient",
+  "status": "draft",
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "cda",
+      "uri": "http://hl7.org/v3/cda",
+      "name": "CDA (R2)"
+    },
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    },
+    {
+      "identity": "v2",
+      "uri": "http://hl7.org/v2",
+      "name": "HL7 v2 Mapping"
+    },
+    {
+      "identity": "loinc",
+      "uri": "http://loinc.org",
+      "name": "LOINC code for the element"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "Patient",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Patient",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Patient.extension",
+        "path": "Patient.extension",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "url"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Patient.extension:Prevsion",
+        "path": "Patient.extension",
+        "sliceName": "Prevsion",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://example.org/fhir/StructureDefinition/Prevision"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Patient.identifier",
+        "path": "Patient.identifier",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "system"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Patient.identifier:RUT",
+        "path": "Patient.identifier",
+        "sliceName": "RUT",
+        "max": "1"
+      },
+      {
+        "id": "Patient.identifier:RUT.system",
+        "path": "Patient.identifier.system",
+        "min": 1,
+        "fixedUri": "http://www.registrocivil.cl/RUN"
+      },
+      {
+        "id": "Patient.identifier:RUT.value",
+        "path": "Patient.identifier.value",
+        "min": 1
+      },
+      {
+        "id": "Patient.identifier:Pasaporte",
+        "path": "Patient.identifier",
+        "sliceName": "Pasaporte"
+      },
+      {
+        "id": "Patient.identifier:Pasaporte.system",
+        "path": "Patient.identifier.system",
+        "min": 1,
+        "fixedUri": "http://www.registrocivil.cl/PASAPORTE"
+      },
+      {
+        "id": "Patient.identifier:Pasaporte.value",
+        "path": "Patient.identifier.value",
+        "min": 1
+      },
+      {
+        "id": "Patient.identifier:RN",
+        "path": "Patient.identifier",
+        "sliceName": "RN"
+      },
+      {
+        "id": "Patient.identifier:RN.system",
+        "path": "Patient.identifier.system",
+        "min": 1,
+        "fixedUri": "http://minsal.cl/RN"
+      },
+      {
+        "id": "Patient.identifier:RN.value",
+        "path": "Patient.identifier.value",
+        "min": 1
+      },
+      {
+        "id": "Patient.name",
+        "path": "Patient.name",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Patient.name.family",
+        "path": "Patient.name.family",
+        "min": 1
+      },
+      {
+        "id": "Patient.name.family.extension",
+        "path": "Patient.name.family.extension",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "url"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Patient.name.family.extension:ApellidoPaterno",
+        "path": "Patient.name.family.extension",
+        "sliceName": "ApellidoPaterno",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/humanname-fathers-family"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Patient.name.family.extension:ApellidoMaterno",
+        "path": "Patient.name.family.extension",
+        "sliceName": "ApellidoMaterno",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/humanname-mothers-family"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Patient.name.given",
+        "path": "Patient.name.given",
+        "short": "Nombre del Paciente",
+        "min": 1
+      },
+      {
+        "id": "Patient.gender",
+        "path": "Patient.gender",
+        "min": 1
+      },
+      {
+        "id": "Patient.birthDate",
+        "path": "Patient.birthDate",
+        "min": 1
+      },
+      {
+        "id": "Patient.address",
+        "path": "Patient.address",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Patient.address.text",
+        "path": "Patient.address.text",
+        "min": 1
+      }
+    ]
+  }
+}
